@@ -11,6 +11,7 @@ function App() {
       items.map((item,index) => <div key={index}>{item}</div>)
     }
   </div>
+  
   return (
     <div className="">
       <h1>Liste de courses</h1>
