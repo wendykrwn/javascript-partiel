@@ -23,9 +23,11 @@ function App() {
   }
 
   const handleSubmit = (event) => {
-    setItems(
-      [...items, newItem]
-    )
+    if (newItem) {
+      setItems(
+        [...items, newItem]
+      )
+    }
     event.preventDefault()
   }
 
