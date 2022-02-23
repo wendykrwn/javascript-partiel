@@ -5,23 +5,42 @@ import { useState } from 'react'
 
 function App() {
   const [items,setItems] = useState(["Salade", "Cornichon","Pain", "Lait", "Chips"])
+  const [newItem, setNewItem] = useState("")
 
   const listItems = <div>
     {
       items.map((item, index) => (
         <div key={index}>
           <input type="checkbox" id={index} name={index}/>
-          <label for={index}>{item}</label>
+          <label htmlFor={index}>{item}</label>
         </div>
       ))
     }
   </div>
 
+  const handleChange = (event) => {
+    setNewItem(event.target.value)
+  }
+
+  const handleSubmit = (event) => {
+    setItems(
+      [...items, newItem]
+    )
+    event.preventDefault()
+  }
+
   return (
     <div className="">
       <h1>Liste de courses</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         {listItems}
+        <div>
+          <p>Ajouter un nouvel item à la liste : </p>
+          <textarea value={newItem} onChange={handleChange} id="addItem" name="addItem" rows="5" cols="33"/>
+        </div>
+        <div>
+          <button type="submit">Ajouter</button>
+        </div>
       </form>
     </div>
   );
