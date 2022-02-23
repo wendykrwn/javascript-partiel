@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 
 function App() {
-  const [items,setItems] = useState(["Salade", "Cornichon","Pain", "Lait", "Chips"])
+  const [items,setItems] = useState([])
   const [newItem, setNewItem] = useState("")
 
   const listItems = <div>
