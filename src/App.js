@@ -8,14 +8,21 @@ function App() {
 
   const listItems = <div>
     {
-      items.map((item,index) => <div key={index}>{item}</div>)
+      items.map((item, index) => (
+        <div key={index}>
+          <input type="checkbox" id={index} name={index}/>
+          <label for={index}>{item}</label>
+        </div>
+      ))
     }
   </div>
-  
+
   return (
     <div className="">
       <h1>Liste de courses</h1>
-      {listItems}
+      <form>
+        {listItems}
+      </form>
     </div>
   );
 }
